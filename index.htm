@@ -10,8 +10,8 @@
         .wrap { max-width: 2000px; }
         .work-list { list-style: none; margin-left: -20px; padding-bottom: 20px; }
         .work-list li { padding: 20px 0 0 20px; float: left; }
-        .work-list li a { display: block; border: 1px solid #888; width: 200px; height: 200px; overflow: hidden; position: relative; text-decoration: none; }
-        .work-list li a img { width: 200px; position: absolute; }
+        .work-list li a { display: block; border: 1px solid #888; width: 230px; height: 170px; overflow: hidden; position: relative; text-decoration: none;background:#fff; }
+        .work-list li a img { width: 230px; position: absolute; }
         .work-list li a h3 { position: absolute; bottom: 0; height: 40px; background: #000; filter: alpha(opacity=70); opacity: 0.7; width: 100%; color: #fff; line-height: 40px; font-weight: normal; font-size: 14px; padding-left: 10px; }
     </style>
 </head>
@@ -96,13 +96,13 @@
             var $img = $a.find('img').css("width", 'auto');
             var leftWrap = $a.offset().left;
             var topWrap = $a.offset().top;
-            var w = $img.width() - 200;
-            var h = $img.height() - 200;
+            var w = $img.width() - 230;
+            var h = $img.height() - 170;
             $(window).bind('mousemove', function (e) {
                 var x = e.pageX;
                 var y = e.pageY;
-                var fx = (x - leftWrap) / 200;
-                var fy = (y - topWrap) / 200;
+                var fx = (x - leftWrap) / 230;
+                var fy = (y - topWrap) / 170;
                 $img.css({ left: -w * fx, top: -h * fy });
 
             });
@@ -111,7 +111,7 @@
         $.fn.stopZoomImg = function () {
             var $a = this;
             var $img = $a.find('img');
-            $img.css({ left: 0, top: 0, width: 200 });
+            $img.css({ left: 0, top: 0, width: 230 });
             $(window).unbind('mousemove');
             return this;
         }
