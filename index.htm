@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html />
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>触屏版拖拽组件-touchDrag</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, minimum-scale=1, user-scalable=no,target-densitydpi=medium-dpi">
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
+    <style>
+        #contenter { background: #eee; }
+        .wrap { max-width: 2000px; }
+        .work-list { list-style: none; margin-left: -10px; padding-bottom: 10px; }
+        .work-list li { padding: 10px 0 0 10px; float: left; }
+        .work-list li a { display: block; border: 1px solid #888; width: 200px; height: 200px; overflow: hidden; position: relative; text-decoration: none; }
+        .work-list li a img { width: 200px; position: absolute; }
+        .work-list li a h3 { position: absolute; bottom: 0; height: 40px; background: #000; filter: alpha(opacity=70); opacity: 0.7; width: 100%; color: #fff; line-height: 40px; font-weight: normal; font-size: 14px; padding-left: 10px; }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="wrap">
+            <h1>
+                JsLover's Code Lib</h1>
+            <p>
+                http://jslover.github.com
+            </p>
+            <ul>
+                <li><a href="http://jslover.com">My Blog</a></li>
+                <li><a href="https://github.com/jslover">Github</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="contenter">
+        <div class="wrap">
+            <ul class="work-list">
+                <li><a href="http://jslover.github.com/touch-drag/" target="_blank" title="触屏版拖拽组件">
+                    <img src="images/cover/touch-drag.jpg" alt="touch-drag" />
+                    <h3>
+                        触屏版拖拽组件</h3>
+                </a></li>
+                <li><a href="http://jslover.github.com/touch-editor/" target="_blank" title="触屏版编辑器">
+                    <img src="images/cover/touch-editor.jpg" alt="touch-editor" />
+                    <h3>
+                        触屏版拖拽组件</h3>
+                </a></li>
+                <li><a href="http://jslover.github.com/photo-processing/" target="_blank" title="图片处理组件">
+                    <img src="images/cover/photo-processing.jpg" alt="photo-processing" />
+                    <h3>
+                        图片处理组件</h3>
+                </a></li>
+                <li><a href="http://jslover.github.com/jquery-tag/" target="_blank" title="tag输入框">
+                    <img src="images/cover/jquery-tag.jpg" alt="jquery-tag" />
+                    <h3>
+                        tag输入框</h3>
+                </a></li>
+                <li><a href="http://jslover.github.com/jquery-oo-sdk/" target="_blank" title="基于jQuery的简单OO框架">
+                    <img src="images/cover/jquery-oo-sdk.jpg" alt="jquery-oo-sdk" />
+                    <h3>
+                        基于jQuery的简单OO框架</h3>
+                </a></li>
+                <div style="clear: both;">
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="wrap">
+            <p>
+                <a href="http://jslover.com">http://jslover.com</a></p>
+            <p>
+                <a href="http://jslover.github.com">http://jslover.github.com</a></p>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="script/common.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var $a = $('.work-list li a');
+            $a.mouseenter(function () {
+                $(this).startZoomImg().find('h3').animate({ height: "0" }, '', 'easeInOutBack')
+            }).mouseleave(function () {
+                $(this).stopZoomImg().find('h3').animate({ height: "40px" }, 'fast')
+            });
+
+        });
+        /*扩展动画效果*/
+        jQuery.extend(jQuery.easing, {
+            easeInOutBack: function (x, t, b, c, d, s) {
+                if (s == undefined) s = 1.70158;
+                if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b;
+                return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
+            }
+        });
+        /*简单放大*/
+        $.fn.startZoomImg = function () {
+            var $a = this;
+            var $img = $a.find('img').css("width", 'auto');
+            var leftWrap = $a.offset().left;
+            var topWrap = $a.offset().top;
+            var w = $img.width() - 200;
+            var h = $img.height() - 200;
+            $(window).bind('mousemove', function (e) {
+                var x = e.pageX;
+                var y = e.pageY;
+                var fx = (x - leftWrap) / 200;
+                var fy = (y - topWrap) / 200;
+                $img.css({ left: -w * fx, top: -h * fy });
+
+            });
+            return this;
+        };
+        $.fn.stopZoomImg = function () {
+            var $a = this;
+            var $img = $a.find('img');
+            $img.css({ left: 0, top: 0, width: 200 });
+            $(window).unbind('mousemove');
+            return this;
+        }
+
+    </script>
+</body>
+</html>

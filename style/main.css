@@ -1,0 +1,24 @@
+﻿* { padding: 0; margin: 0; }
+ul{list-style:none;}
+body { background: #555; text-align: center; }
+#header { height: 80px; }
+#contenter { background: #fff;min-height:300px; }
+.wrap { width: 95%; margin: auto; text-align: left; max-width: 1000px; }
+.demo { position: relative; width: 100%; height: 500px; border: 1px solid #ccc; margin: 10px 0; }
+.demo .btn-show-code { position: absolute; top: -25px; right: 10px; text-decoration: none; color: #555; }
+.demo .btn-show-code:hover { color: #000; text-decoration: underline; }
+#code-view-win { width: 70%; text-align: left; position: fixed; background: #555; z-index: 9999999; left: 15%; top: 45%; margin-top: -150px; border: 1px solid #333; border-radius: 5px; box-shadow: 0 0 12px #000; }
+#code-view-win textarea { outline: none; width: 100%; height: 100%; font-size: 12px; background: #555; color: #ddd; border: none; resize: none; overflow: auto; height: 300px; border-radius: 5px; }
+#code-view-win .btn-close-code { position: absolute; z-index: 2; right: -14px; top: -14px; display: block; width: 30px; height: 30px; text-decoration: none; background: #333; line-height: 30px; text-align: center; color: #fff; border-radius: 15px; box-shadow: 0 0 10px #888; }
+#code-view-win .btn-close-code:hover { color: Red; }
+#header { }
+#header .wrap { position: relative; }
+#header h1 { line-height: 50px; font-size: 26px; color: #ddd; }
+#header p { color: #888; height: 20px; overflow: hidden; }
+#header ul { position: absolute; right: 0px; bottom: 0; list-style: none; }
+#header ul li { float: left; }
+#header ul li a { display: block; text-decoration: none; margin: 0 0 0 10px; background: #444; font-size: 14px; padding: 10px; color: #ccc; }
+#header ul li a:hover { background: #222; }
+#footer { padding: 10px 0; color: #aaa; line-height: 1.8; }
+#footer a { text-decoration: none; color: #aaa; }
+#footer a:hover { text-decoration: none; color: #fff; }
