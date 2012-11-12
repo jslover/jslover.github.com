@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, minimum-scale=1, user-scalable=no,target-densitydpi=medium-dpi">
     <link href="style/main.css" rel="stylesheet" type="text/css" />
     <style>
-        #contenter { background: #eee; }
+        #contenter { background: #eee; }       
         .wrap { max-width: 2000px; }
         .work-list { list-style: none; margin-left: -20px; padding-bottom: 20px; }
         .work-list li { padding: 20px 0 0 20px; float: left; }
@@ -98,11 +98,11 @@
             var topWrap = $a.offset().top;
             var w = $img.width() - 230;
             var h = $img.height() - 170;
-            $(window).bind('mousemove', function (e) {
+            $(window.document).bind('mousemove', function (e) {          
                 var x = e.pageX;
                 var y = e.pageY;
                 var fx = (x - leftWrap) / 230;
-                var fy = (y - topWrap) / 170;
+                var fy = (y - topWrap) / 170;               
                 $img.css({ left: -w * fx, top: -h * fy });
 
             });
@@ -112,7 +112,7 @@
             var $a = this;
             var $img = $a.find('img');
             $img.css({ left: 0, top: 0, width: 230 });
-            $(window).unbind('mousemove');
+            $(window.document).unbind('mousemove');
             return this;
         }
 
