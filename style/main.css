@@ -16,7 +16,7 @@ img { border: none; }
 #header .wrap { position: relative; }
 #header h1 { line-height: 50px; font-size: 26px; color: #ddd; }
 #header p { color: #888; height: 20px; overflow: hidden; }
-#header ul { position: absolute; right: 0px; bottom: 0; list-style: none; }
+#header ul { position: absolute; right: 0px; bottom: -6px; list-style: none; }
 #header ul li { float: left; }
 #header ul li a { display: block; text-decoration: none; margin: 0 0 0 10px; background: #444; font-size: 14px; padding: 10px; color: #ccc; }
 #header ul li a:hover { background: #222; }
